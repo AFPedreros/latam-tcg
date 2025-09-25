@@ -7,19 +7,37 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "includes": ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineWidth": 80
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+      "style": {
+        "useConst": "warn",
+        "useSelfClosingElements": "warn"
+      },
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "noExplicitAny": "warn",
+        "noConsole": "warn"
+      },
+      "correctness": {
+        "noUnusedVariables": "warn",
+        "noUnreachable": "error"
+      },
+      "complexity": {
+        "noUselessConstructor": "warn",
+        "useLiteralKeys": "warn"
+      },
+      "nursery": {
+        "useSortedClasses": "warn"
       }
     },
     "domains": {
@@ -33,5 +51,25 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "always",
+      "quoteStyle": "double",
+      "trailingCommas": "es5"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["*.css", "*.json"],
+      "linter": {
+        "enabled": false
+      }
+    }
+  ]
 }
