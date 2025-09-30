@@ -9,8 +9,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Latam TCG",
+  title: "TCG Master",
   description: "El mejor lugar para comprar cartas TCG en Latinoamérica",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
