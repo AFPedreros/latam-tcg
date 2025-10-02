@@ -1,3 +1,4 @@
+import { Footer } from "@/components/ui/footer";
 import { Navbar } from "@/components/ui/navbar";
 
 export default function HomeLayout({
@@ -8,7 +9,8 @@ export default function HomeLayout({
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      {children}
+      <div className="flex-1">{children}</div>
+      <Footer />
     </div>
   );
 }
