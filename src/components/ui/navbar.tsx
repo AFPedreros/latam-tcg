@@ -19,7 +19,7 @@ export const Navbar = () => {
     <nav className="flex h-20 items-center justify-between border-b bg-white px-6 text-center font-medium">
       <Link href="/">
         <span className="font-bold text-3xl">TCG</span>
-        <span className="text-sm">Master</span>
+        <span className="font-semibold text-primary text-sm">Master</span>
       </Link>
 
       <div className="hidden items-center gap-4 lg:flex">
