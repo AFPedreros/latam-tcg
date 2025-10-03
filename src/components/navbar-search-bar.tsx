@@ -1,6 +1,7 @@
 "use client";
 import { Check, ChevronDown, Search } from "lucide-react";
 import React from "react";
+import { navbarCategories, navbarPlaceholderTexts } from "@/config/site";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -9,13 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Input } from "./ui/input";
-
-const categories = [
-  "Todas",
-  "Pokemon japonés",
-  "Pokemon inglés",
-  "Pokemon español",
-];
+import { TextLoop } from "./ui/text-loop";
 
 export const NavbarSearchBar = () => {
   const [selectedCategory, setSelectedCategory] = React.useState("Todas");
@@ -39,7 +34,7 @@ export const NavbarSearchBar = () => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="w-56">
-          {categories.map((category) => (
+          {navbarCategories.map((category) => (
             <DropdownMenuItem
               key={category}
               onClick={() => setSelectedCategory(category)}
@@ -54,17 +49,33 @@ export const NavbarSearchBar = () => {
         </DropdownMenuContent>
       </DropdownMenu>
 
-      <Input
-        type="text"
-        placeholder='Try "special illustration cards"'
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-        className="flex-1 rounded-none border-0 bg-transparent px-6 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
-      />
+      <div className="relative flex-1">
+        <Input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+          className="w-full rounded-none border-0 bg-transparent px-6 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
+        />
+
+        {!searchQuery && (
+          <div className="pointer-events-none absolute inset-0 flex items-center px-6 text-muted-foreground">
+            <TextLoop interval={3} className="text-sm">
+              {navbarPlaceholderTexts.map((text) => (
+                <span key={text}>{text}</span>
+              ))}
+            </TextLoop>
+          </div>
+        )}
+      </div>
 
       {/* Search Button */}
-      <Button onClick={handleSearch} size="icon" className="rounded-l-none">
+      <Button
+        onClick={handleSearch}
+        size="icon"
+        variant="ghost"
+        className="rounded-l-none border-input border-l"
+      >
         <Search className="h-5 w-5" />
         <span className="sr-only">Buscar</span>
       </Button>
