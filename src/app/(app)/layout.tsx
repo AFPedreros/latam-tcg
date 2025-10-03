@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   description: "El mejor lugar para comprar cartas TCG en Latinoamérica",
   icons: {
     icon: "/favicon.png",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
   },
 };
 

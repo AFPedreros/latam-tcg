@@ -5,9 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { paths } from "@/config/paths";
-import { Button } from "./button";
 import { NavbarItem } from "./navbar-item";
+import { NavbarSearchBar } from "./navbar-search-bar";
 import { NavbarSidebar } from "./navbar-sidebar";
+import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -16,11 +17,10 @@ export const Navbar = () => {
   const navigation = [
     { name: "Sets", href: paths.public.sets.getHref() },
     { name: "Cartas", href: paths.public.cards.getHref() },
-    { name: "Nosotros", href: paths.public.about.getHref() },
   ];
 
   return (
-    <nav className="flex h-20 items-center justify-between border-b bg-white px-6 text-center font-medium">
+    <nav className="flex h-20 items-center gap-x-10 border-b bg-white px-6 text-center font-medium">
       <Link href="/">
         <span className="font-bold text-3xl">TCG</span>
         <span className="font-semibold text-primary text-sm">Master</span>
@@ -37,6 +37,8 @@ export const Navbar = () => {
           </NavbarItem>
         ))}
       </div>
+
+      <NavbarSearchBar />
 
       <div className="hidden gap-x-4 lg:flex">
         <Button variant="default">Login</Button>

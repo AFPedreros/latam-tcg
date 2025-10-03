@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { NavbarItem } from "@/types";
-import { Button } from "./button";
-import { ScrollArea } from "./scroll-area";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./sheet";
+import { Button } from "./ui/button";
+import { ScrollArea } from "./ui/scroll-area";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
 
 type NavbarSidebarProps = {
   items: NavbarItem[];
