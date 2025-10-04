@@ -22,12 +22,12 @@ export const NavbarSearchBar = () => {
   };
 
   return (
-    <div className="flex w-full items-center gap-0 rounded-lg border border-input bg-background">
+    <div className="hidden w-full items-center gap-0 rounded-lg border border-input bg-foreground text-background lg:flex">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="rounded-r-none border-input border-r px-6 font-medium hover:bg-muted"
+            className="rounded-r-none border-input border-r px-6 font-medium hover:bg-foreground hover:text-background"
           >
             {selectedCategory}
             <ChevronDown className="ml-2 h-4 w-4" />

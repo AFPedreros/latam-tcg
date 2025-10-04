@@ -20,7 +20,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="flex h-20 items-center gap-x-10 border-b bg-white px-6 text-center font-medium">
+    <nav className="sticky top-0 z-40 flex h-20 items-center justify-between gap-x-10 border-b bg-foreground px-6 text-center font-medium text-background lg:justify-around">
       <Link href="/">
         <span className="font-bold text-3xl">TCG</span>
         <span className="font-semibold text-primary text-sm">Master</span>
@@ -42,7 +42,9 @@ export const Navbar = () => {
 
       <div className="hidden gap-x-4 lg:flex">
         <Button variant="default">Login</Button>
-        <Button variant="outline">Start selling</Button>
+        <Button className="text-foreground" variant="outline">
+          Start selling
+        </Button>
       </div>
 
       <div className="flex items-center justify-center lg:hidden">
