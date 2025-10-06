@@ -1,11 +1,12 @@
 import "@/styles/globals.css";
 
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { cn } from "@/utils";
 
-const montserrat = Montserrat({
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,9 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={cn("antialiased", montserrat.className)}>
-        {children}
-      </body>
+      <body className={cn("antialiased", poppins.className)}>{children}</body>
     </html>
   );
 }
