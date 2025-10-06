@@ -7,7 +7,7 @@ export const HomeHero = () => {
   return (
     <section
       id="hero-section"
-      className="relative flex h-[calc(100vh-5rem)] items-center justify-center px-8 lg:px-[8vw]"
+      className="relative flex py-40 md:py-[12rem] items-center justify-center px-8 lg:px-[8vw]"
     >
       <div className="pointer-events-none absolute inset-0 overflow-visible">
         <FloatingCard
