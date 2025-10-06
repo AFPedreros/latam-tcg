@@ -1,4 +1,4 @@
-import { ArrowRight, } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { FloatingCard } from "@/components/floating-card";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ export const HomeHero = () => {
   return (
     <section
       id="hero-section"
-      className="relative flex items-center justify-center px-8 py-40 md:py-[12rem] lg:px-[8vw]"
+      className="relative flex h-[calc(100vh-5rem)] items-center justify-center px-8 lg:px-[8vw]"
     >
       <div className="pointer-events-none absolute inset-0 overflow-visible">
         <FloatingCard
