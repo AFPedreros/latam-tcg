@@ -27,7 +27,7 @@ export const NavbarSearchBar = () => {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="rounded-r-none border-input border-r px-6 font-medium hover:bg-foreground hover:text-background"
+            className="rounded-r-none border-input border-r px-6 font-medium hover:bg-background hover:text-foreground"
           >
             {selectedCategory}
             <ChevronDown className="ml-2 h-4 w-4" />
@@ -69,7 +69,6 @@ export const NavbarSearchBar = () => {
         )}
       </div>
 
-      {/* Search Button */}
       <Button
         onClick={handleSearch}
         size="icon"
