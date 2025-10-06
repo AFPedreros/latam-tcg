@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, } from "lucide-react";
 
 import { FloatingCard } from "@/components/floating-card";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ export const HomeHero = () => {
   return (
     <section
       id="hero-section"
-      className="relative flex py-40 md:py-[12rem] items-center justify-center px-8 lg:px-[8vw]"
+      className="relative flex items-center justify-center px-8 py-40 md:py-[12rem] lg:px-[8vw]"
     >
       <div className="pointer-events-none absolute inset-0 overflow-visible">
         <FloatingCard
@@ -52,11 +52,6 @@ export const HomeHero = () => {
       </div>
 
       <div className="z-10 flex max-w-screen-lg flex-col items-center gap-6 text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary bg-primary/10 px-4 py-2 font-medium text-primary text-sm backdrop-blur-sm">
-          <Sparkles className="h-4 w-4" />
-          <span>Pagos seguros · Envíos dentro de Colombia</span>
-        </div>
-
         <h1 className="text-balance text-6xl leading-none md:text-7xl lg:text-8xl">
           Ve de 0 a tu primera venta
         </h1>

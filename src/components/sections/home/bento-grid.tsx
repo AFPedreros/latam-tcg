@@ -2,7 +2,7 @@ import { CircleCheck } from "lucide-react";
 
 export const HomeBentoGrid = () => {
   return (
-    <section className="lg:-mt-20 relative z-10 mx-auto flex max-w-6xl flex-col gap-8 bg-gray px-4 pb-24 lg:pb-32">
+    <section className="lg:-mt-10 relative z-10 mx-auto flex max-w-6xl flex-col gap-8 bg-gray px-4 pb-24 lg:pb-32">
       <div className="flex flex-col gap-8 lg:flex-row">
         <div className="flex h-auto flex-col rounded-3xl border border-dark-gray/50 bg-white p-8 md:relative md:h-[30rem] lg:basis-2/3">
           <div className="order-1 md:order-none">
