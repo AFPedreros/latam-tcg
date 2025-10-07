@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/navbar";
 import { cn } from "@/utils";
 
 const poppins = Poppins({
@@ -24,7 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={cn("antialiased", poppins.className)}>{children}</body>
+      <body className={cn("antialiased", poppins.className)}>
+        <Navbar />
+        <div className="flex flex-col">
+          <div className="flex-1">{children}</div>
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { paths } from "@/config/paths";
+import { cn } from "@/utils";
 import { NavbarItem } from "./navbar-item";
 import { NavbarSearchBar } from "./navbar-search-bar";
 import { NavbarSidebar } from "./navbar-sidebar";
@@ -14,14 +15,20 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
-  const navigation = [
-    { name: "Sets", href: paths.public.sets.getHref() },
-    { name: "Cartas", href: paths.public.cards.getHref() },
-  ];
+  const navigation = [{ name: "Cartas", href: paths.public.cards.getHref() }];
+
+  const isHome = pathname === paths.home.getHref();
 
   return (
-    <nav className="sticky top-0 z-40 flex h-20 items-center justify-between gap-x-10 border-b bg-foreground px-6 text-center font-medium text-background lg:justify-around">
-      <Link href="/">
+    <nav
+      className={cn(
+        "top-0 z-40 flex h-20 items-center justify-between gap-x-10 border-border/35 border-b bg-[#242423] px-6 text-center font-medium text-background lg:justify-around",
+        {
+          "sticky bg-foreground": isHome,
+        }
+      )}
+    >
+      <Link href={paths.home.getHref()}>
         <span className="font-bold text-3xl">TCG</span>
         <span className="font-semibold text-primary text-sm">Master</span>
       </Link>

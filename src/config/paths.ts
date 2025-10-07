@@ -15,7 +15,7 @@ export const paths = {
       getHref: () => "/sets",
     },
     cards: {
-      getHref: () => "/cards",
+      getHref: () => "/explorar",
     },
     about: {
       getHref: () => "/about",
