@@ -33,7 +33,10 @@ export const NavbarSearchBar = () => {
             <ChevronDown className="ml-2 h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="w-56">
+        <DropdownMenuContent
+          align="start"
+          className="w-56 bg-foreground text-background"
+        >
           {navbarCategories.map((category) => (
             <DropdownMenuItem
               key={category}
