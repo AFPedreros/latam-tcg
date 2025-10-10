@@ -11,14 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Scroller } from "@/components/ui/scroller";
 import { Separator } from "@/components/ui/separator";
-
-interface FilterState {
-  search: string;
-  category: string;
-  sets: string[];
-  rarities: string[];
-  sortBy: string;
-}
+import type { FilterState } from "@/types";
 
 const CATEGORIES = [
   { value: "all", label: "Todos" },

@@ -4,17 +4,13 @@ import { Button } from "./ui/button";
 import { ScrollArea } from "./ui/scroll-area";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
 
-type NavbarSidebarProps = {
+type Props = {
   items: NavbarItem[];
   open: boolean;
   onOpenChange: (open: boolean) => void;
 };
 
-export const NavbarSidebar = ({
-  items,
-  open,
-  onOpenChange,
-}: NavbarSidebarProps) => {
+export const NavbarSidebar = ({ items, open, onOpenChange }: Props) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="left" className="transform-none p-0">

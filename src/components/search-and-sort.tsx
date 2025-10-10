@@ -10,12 +10,12 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-interface SearchAndSortProps {
+type Props = {
   search: string;
   sortBy: string;
   onSearchChange: (value: string) => void;
   onSortChange: (value: string) => void;
-}
+};
 
 const SORT_OPTIONS = [
   { value: "name", label: "Nombre (A-Z)" },
@@ -38,7 +38,7 @@ export function SearchAndSort({
   sortBy,
   onSearchChange,
   onSortChange,
-}: SearchAndSortProps) {
+}: Props) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
       <div className="relative flex-1 rounded-md bg-foreground text-background">

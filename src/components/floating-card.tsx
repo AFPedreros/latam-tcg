@@ -5,7 +5,7 @@ import Image from "next/image";
 import React from "react";
 import { cn } from "@/utils";
 
-type FloatingCardProps = {
+type Props = {
   src: string;
   alt: string;
   className: string;
@@ -19,7 +19,7 @@ export const FloatingCard = ({
   className,
   delay = 0,
   parallaxIntensity = 30,
-}: FloatingCardProps) => {
+}: Props) => {
   const cardRef = React.useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);

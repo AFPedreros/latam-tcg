@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { cn } from "@/utils";
 
-type NavbarItemProps = {
+type Props = {
   href: string;
   children: React.ReactNode;
   isActive?: boolean;
 };
 
-export const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
+export const NavbarItem = ({ href, children, isActive }: Props) => {
   if (href === "/") return null;
 
   return (

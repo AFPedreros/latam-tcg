@@ -14,3 +14,11 @@ export type PokemonSet = {
     symbol: string;
   };
 };
+
+export type FilterState = {
+  search: string;
+  category: string;
+  sets: string[];
+  rarities: string[];
+  sortBy: string;
+};

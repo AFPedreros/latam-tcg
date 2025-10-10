@@ -68,8 +68,8 @@ export const PokemonSetsCarousel = ({ sets }: PokemonSetsCarouselProps) => {
               key={set.id}
               className="pl-4 md:basis-1/2 lg:basis-1/3"
             >
-              <Card className="group grid grid-cols-5 gap-0 overflow-hidden border-border/35 bg-foreground p-0 transition-colors hover:border-primary/50">
-                <div className="relative col-span-3 flex h-90 items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5 p-8">
+              <Card className="group grid grid-cols-10 gap-0 overflow-hidden border-border/35 bg-foreground p-0 transition-colors hover:border-primary/50">
+                <div className="relative col-span-5 flex h-90 items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5 p-8 lg:col-span-6">
                   {set.images.logo ? (
                     <Image
                       src={set.images.logo}
@@ -84,7 +84,7 @@ export const PokemonSetsCarousel = ({ sets }: PokemonSetsCarouselProps) => {
                     </div>
                   )}
                 </div>
-                <div className="col-span-2 flex flex-col px-6 py-4">
+                <div className="col-span-5 flex flex-col px-6 py-4 lg:col-span-4">
                   <div className="flex-1 space-y-2">
                     <h3 className="mb-2 text-balance font-bold text-background text-xl">
                       {set.name}
