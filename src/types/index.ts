@@ -1,3 +1,5 @@
+import type { Category } from "@/payload-types";
+
 export type NavbarItem = {
   name: string;
   href: string;
@@ -21,4 +23,8 @@ export type FilterState = {
   sets: string[];
   rarities: string[];
   sortBy: string;
+};
+
+export type CustomCategory = Category & {
+  subcategories: Category[];
 };

@@ -11,23 +11,14 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Scroller } from "@/components/ui/scroller";
 import { Separator } from "@/components/ui/separator";
-import type { FilterState } from "@/types";
+import type { Category } from "@/payload-types";
+import type { CustomCategory, FilterState } from "@/types";
 
-const CATEGORIES = [
-  { value: "all", label: "Todos" },
-  { value: "single", label: "Cartas Individuales" },
-  { value: "packs", label: "Sobres" },
-  { value: "bundles", label: "Paquetes" },
-  { value: "boxes", label: "Cajas" },
-  { value: "decks", label: "Mazos" },
-  { value: "accessories", label: "Accesorios" },
-  { value: "oversized", label: "Oversized" },
-  { value: "dividers", label: "Divisores" },
-  { value: "tins", label: "Latas" },
-  { value: "sleeves", label: "Fundas" },
-];
+type Props = {
+  category: CustomCategory;
+};
 
-export function PokemonFilters() {
+export function PokemonFilters({ category }: Props) {
   const [filters, setFilters] = React.useState<FilterState>({
     search: "",
     category: "all",
@@ -71,24 +62,24 @@ export function PokemonFilters() {
 
       <Accordion type="single" className="px-4" collapsible>
         <AccordionItem value="item-1">
-          <AccordionTrigger>Categoría</AccordionTrigger>
+          <AccordionTrigger>{category.name}</AccordionTrigger>
           <AccordionContent>
             <Scroller className="flex h-56 w-full flex-col gap-2.5 p-4">
-              {CATEGORIES.map((category) => (
+              {category.subcategories.map((subcategory: Category) => (
                 <div
-                  key={category.value}
+                  key={subcategory.name}
                   className="flex items-center space-x-2"
                 >
                   <Checkbox
-                    id={`category-${category.value}`}
-                    checked={filters.category === category.value}
+                    id={`category-${subcategory.name}`}
+                    checked={filters.category === subcategory.name}
                     // onCheckedChange={() => handleCategoryChange(category.value)}
                   />
                   <label
-                    htmlFor={`category-${category.value}`}
+                    htmlFor={`category-${subcategory.name}`}
                     className="cursor-pointer text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    {category.label}
+                    {subcategory.name}
                   </label>
                 </div>
               ))}

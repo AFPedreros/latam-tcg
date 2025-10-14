@@ -11,10 +11,10 @@ import {
 } from "./ui/dropdown-menu";
 
 type Props = {
-  search: string;
-  sortBy: string;
-  onSearchChange: (value: string) => void;
-  onSortChange: (value: string) => void;
+  search?: string;
+  sortBy?: string;
+  onSearchChange?: (value: string) => void;
+  onSortChange?: (value: string) => void;
 };
 
 const SORT_OPTIONS = [
@@ -36,8 +36,8 @@ const SORT_OPTIONS = [
 export function SearchAndSort({
   search,
   sortBy,
-  onSearchChange,
-  onSortChange,
+  // onSearchChange,
+  // onSortChange,
 }: Props) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
@@ -46,7 +46,7 @@ export function SearchAndSort({
         <Input
           placeholder="Buscar cartas..."
           value={search}
-          onChange={(e) => onSearchChange(e.target.value)}
+          // onChange={(e) => onSearchChange(e.target.value)}
           className="border-input/35 pl-9"
         />
       </div>
@@ -71,7 +71,7 @@ export function SearchAndSort({
           {SORT_OPTIONS.map((option) => (
             <DropdownMenuItem
               key={option.value}
-              onClick={() => onSortChange(option.value)}
+              // onClick={() => onSortChange(option.value)}
               className="flex cursor-pointer items-center justify-between"
             >
               {option.label}
