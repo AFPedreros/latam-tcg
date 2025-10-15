@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { TRPCReactProvider } from "@/trpc/client";
 import { cn } from "@/utils";
 
 const poppins = Poppins({
@@ -29,7 +30,9 @@ export default function RootLayout({
       <body className={cn("antialiased", poppins.className)}>
         <Navbar />
         <div className="flex flex-col">
-          <div className="flex-1">{children}</div>
+          <TRPCReactProvider>
+            <div className="flex-1">{children}</div>
+          </TRPCReactProvider>
         </div>
         <Footer />
       </body>
