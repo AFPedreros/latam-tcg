@@ -1,5 +1,6 @@
 "use client";
 
+import { useSuspenseQuery } from "@tanstack/react-query";
 import React from "react";
 import {
   Accordion,
@@ -12,13 +13,15 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Scroller } from "@/components/ui/scroller";
 import { Separator } from "@/components/ui/separator";
 import type { Category } from "@/payload-types";
-import type { CustomCategory, FilterState } from "@/types";
+import { useTRPC } from "@/trpc/client";
+import type { FilterState } from "@/types";
 
-type Props = {
-  category: CustomCategory;
-};
+export function PokemonFilters() {
+  const trpc = useTRPC();
+  const { data: category } = useSuspenseQuery(
+    trpc.categories.getBySlug.queryOptions({ slug: "categorias" })
+  );
 
-export function PokemonFilters({ category }: Props) {
   const [filters, setFilters] = React.useState<FilterState>({
     search: "",
     category: "all",
@@ -62,10 +65,10 @@ export function PokemonFilters({ category }: Props) {
 
       <Accordion type="single" className="px-4" collapsible>
         <AccordionItem value="item-1">
-          <AccordionTrigger>{category.name}</AccordionTrigger>
+          <AccordionTrigger>{category?.name}</AccordionTrigger>
           <AccordionContent>
             <Scroller className="flex h-56 w-full flex-col gap-2.5 p-4">
-              {category.subcategories.map((subcategory: Category) => (
+              {category?.subcategories.map((subcategory: Category) => (
                 <div
                   key={subcategory.name}
                   className="flex items-center space-x-2"

@@ -1,10 +1,10 @@
-import configPromise from "@payload-config";
-import { getPayload } from "payload";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { Suspense } from "react";
 import { PokemonCard } from "@/components/pokemon-card.tsx";
 import { PokemonFilters } from "@/components/pokemon-filters";
 import { PokemonSetsCarousel } from "@/components/pokemon-sets-carousel";
 import { SearchAndSort } from "@/components/search-and-sort";
-import type { Category } from "@/payload-types";
+import { getQueryClient, trpc } from "@/trpc/server";
 
 async function getPokemonSets() {
   try {
@@ -27,29 +27,12 @@ async function getPokemonSets() {
 }
 
 export default async function Explore() {
+  const queryClient = getQueryClient();
+  void queryClient.prefetchQuery(
+    trpc.categories.getBySlug.queryOptions({ slug: "categorias" })
+  );
+
   const sets = await getPokemonSets();
-
-  const payload = await getPayload({
-    config: configPromise,
-  });
-
-  const data = await payload.find({
-    collection: "categories",
-    depth: 1,
-    where: {
-      parent: {
-        exists: false,
-      },
-    },
-  });
-
-  const formattedData = data?.docs.map((doc) => ({
-    ...doc,
-    subcategories: (doc.subcategories?.docs ?? []).map((doc) => ({
-      ...(doc as Category),
-      subcategories: undefined,
-    })),
-  }));
 
   return (
     <main className="relative min-h-[calc(100vh-5rem)] w-full bg-[#242423] text-background">
@@ -64,7 +47,11 @@ export default async function Explore() {
           </div>
 
           <div className="grid grid-cols-1 items-start gap-x-16 gap-y-8 md:grid-cols-[1fr_3fr]">
-            <PokemonFilters category={formattedData[0]} />
+            <HydrationBoundary state={dehydrate(queryClient)}>
+              <Suspense fallback={<div>Cargando filtros...</div>}>
+                <PokemonFilters />
+              </Suspense>
+            </HydrationBoundary>
 
             <div className="grid grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] gap-4 lg:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))]">
               <PokemonCard />
